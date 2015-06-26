@@ -1,5 +1,7 @@
 # just-relax
 
+![cat, beach](http://memeguy.com/photos/images/after-seeing-the-redditor-who-found-lbs-of-cocaine-at-the-beach-28242.jpg)
+
 We all loooove our work right? 
 Especially the ones, who code, don't leave their work behind when leaving the office!
 We are still thinking about our application logic, while we are at the gym. 
