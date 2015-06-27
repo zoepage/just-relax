@@ -1,33 +1,9 @@
-/*
-#data-setup1{
-    position: absolute;
-    display: block;
-    z-index: 1001;
-    margin-right: 0;
-}
-
-#data-setup2{
-    position: absolute;
-    display: block;
-    z-index: 1002;
-    margin-right: -100%;
-}
-
-#data-setup3{
-    position: absolute;
-    display: block;
-    z-index: 1003;
-    margin-right: -200%;
-}
-
-*/
 #settings-init{
     min-height: 700px;
 }
 #settings-init .col-md-6 {
     margin-top: 15%;
 }
-
 
 .hide{
     display: none;

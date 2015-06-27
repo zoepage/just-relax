@@ -6,17 +6,17 @@
 	src: url('../fonts/Montserrat-Regular.otf') format('truetype');
 }
 */
-@font-face { 
+@font-face {
 	font-family: 'Montserrat-UltraLight';
 	src: url('../fonts/Montserrat-UltraLight.otf') format('truetype');
 }
 
-@font-face { 
+@font-face {
 	font-family: 'Montserrat-Light';
 	src: url('../fonts/Montserrat-Light.otf') format('truetype');
 }
 
-@font-face { 
+@font-face {
 	font-family: 'Pacifico';
 	src: url('../fonts/Pacifico.ttf') format('truetype');
 }
@@ -36,7 +36,7 @@ body {
 }
 
 #about .headlines {
-	margin-top: 55px;	
+	margin-top: 55px;
 	color:#EB6E77;
 }
 
@@ -65,6 +65,7 @@ body {
 }
 
 .headlines {
+	padding-top: 25px;
 	margin-top: 25px;
 	margin-bottom: 25px;
 	text-align: center;
@@ -114,8 +115,13 @@ body {
 }
 
 #sign-up input
-{	
+{
 	margin-top: 25px;
+}
+
+.spare-line {
+	border-top: solid 1px #eeeeee;
+	margin-top: 50px;
 }
 
 ::-webkit-input-placeholder { color:#00615f !important; }
