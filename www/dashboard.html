@@ -51,8 +51,26 @@
     </p>
     <button id="go-on-vacation" class="btn btn-success" data-url="http://justrelax.rrbone.io/booking/holiday?from=2015-08-08&to=2015-08-20&location=Deutschland">I need a vacation!</button>
   </div>
+
+  <div id="output">
+  </div>
 </div>
 
+<script id="result_list" type="text/html">
+<ul>
+{{#results}}
+  {{>single_result}}
+{{/results}}
+</ul>
+</script>
+
+<script id="single_result" type="text/html">
+<li>
+<a href="{{link}}">{{name}} in {{city}} for {{price}}€</a>
+<br>
+<img src="{{image}}">
+</li>
+</script>
 
 <script src="assets/vendor/jquery-2.1.0.min.js"></script>
 <script src="assets/vendor/bootstrap/bootstrap.js"></script>
@@ -61,6 +79,7 @@
 
 <script src="assets/vendor/hoodie.accountbar.bootstrap.js"></script>
 <script src="assets/vendor/bootstrap.modalform.js"></script>
+<script src="assets/js/ICanHaz.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

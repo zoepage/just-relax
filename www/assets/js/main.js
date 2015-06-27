@@ -14,7 +14,7 @@ $(function () {
 var submitSignUp = function submitSignUp(){
   var usr = $('#email').val();
   var pwd = $('#pwd').val();
-  
+
   hoodie.account.signIn(usr, pwd).done(function(){
     if(hoodie.account.username) {
       location.href = 'dashboard.html'
@@ -26,7 +26,14 @@ var submitSignUp = function submitSignUp(){
 // return results
 var result = function result(event) {
   var e = event.target;
-  var url = e.getAttribute('data-url');
+  var urlReq = e.getAttribute('data-url');
+  console.log(urlReq);
 
-  $.ajax()
+  $.ajax({
+    url: urlReq
+  })
+  .done(function( data ) {
+    var html = ich.result_list(data);
+    $("#output").append(html);
+  });
 }
