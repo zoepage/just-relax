@@ -61,19 +61,24 @@
     <form role="form">
       <div class="form-group">
         <label for="vacDays">How much Days for vacation are left?:</label>
-        <input type="text" class="form-control" id="vacDays">
+        <input type="number" class="form-control" id="vacDays">
       </div>
       <div class="form-group">
         <label for="budget">What's your budget?</label>
-        <input type="text" class="form-control" id="budget">
+        <input type="number" class="form-control" id="budget">
       </div>
       <div class="form-group">
         <label for="distance">Whats the max. distance you would like to travel?:</label>
         <input type="text" class="form-control" id="distance">
       </div>
       <div class="form-group">
-        <label for="travelMode">Whats your favourite travelling vehicel?</label>
-        <input type="text" class="form-control" id="travelMode">
+        <label for="travelMode">Select your Vehicle:</label>
+        <select class="form-control" id="travelMode">
+          <option>Plane</option>
+          <option>Car</option>
+          <option>Bus</option>
+          <option>Train</option>
+        </select>
       </div>
       <button class="btn btn-success">Update your travel Data</button>
     </form>
@@ -89,15 +94,15 @@
       </div>
       <div class="form-group">
         <label for="kids">Do you have kids with you? If yes, how many?</label>
-        <input type="text" class="form-control" id="kids">
+        <input type="number" class="form-control" id="kids">
       </div>
       <div class="form-group">
         <label for="adults">Do you have adults with you? If yes, how many?</label>
-        <input type="text" class="form-control" id="adults">
+        <input type="number" class="form-control" id="adults">
       </div>
       <div class="form-group">
         <label for="dog">Do you have Dogs with you? If yes, how many?</label>
-        <input type="text" class="form-control" id="dog">
+        <input type="number" class="form-control" id="dog">
       </div>
       <button class="btn btn-success">Update important information</button>
     </form>
