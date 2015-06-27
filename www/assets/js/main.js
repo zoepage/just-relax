@@ -26,7 +26,13 @@ var submitSignUp = function submitSignUp(){
 // return results
 var result = function result(event) {
   var e = event.target;
-  var url = e.getAttribute('data-url');
+  var urlReq = e.getAttribute('data-url');
 
-  $.ajax()
+  $.ajax({
+  url: urlReq
+})
+  .done(function( data ) {
+    
+      console.log( data );
+  });
 }
