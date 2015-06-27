@@ -50,8 +50,8 @@
         <label for="name">What's your name?</label>
         <input type="name" class="form-control" id="name">
       </div>
-      <a href="dashboard.html" class="btn btn-danger">Remind me later</a>
-      <button type="submit" class="btn btn-success"  data-next="2">Go to Step 2 of 3</button>
+      <a href="dashboard.html" class="btn btn-danger" tabindex="999">Remind me later</a>
+      <button type="submit" class="btn btn-success" tabindex="0" data-next="2">Go to Step 2 of 3</button>
     </form>
   </div>
 
@@ -65,12 +65,12 @@
         <input type="text" class="form-control" id="vacDays">
       </div>
       <div class="form-group">
-        <label for="budget">How many Budget do you have?</label>
+        <label for="budget">What's your budget?</label>
         <input type="text" class="form-control" id="budget">
       </div>
       <div class="form-group">
         <label for="distance">Whats the max. distance you would like to travel?:</label>
-        <input type="password" class="form-control" id="distance">
+        <input type="text" class="form-control" id="distance">
       </div>
       <div class="form-group">
         <label for="travelMode">Whats your favourite travelling vehicel?</label>
@@ -100,7 +100,7 @@
         <label for="dog">Do you have Dogs with you? If yes, how many?</label>
         <input type="text" class="form-control" id="dog">
       </div>
-      <a href="./dashboard.html" class="btn btn-success">Finish</a>
+      <a href="./dashboard.html" id="finish" class="btn btn-success">Finish</a>
 
     </form>
   </div>
@@ -115,6 +115,7 @@
 <script src="assets/vendor/hoodie.accountbar.bootstrap.js"></script>
 <script src="assets/vendor/bootstrap.modalform.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/settings.js"></script>
 <script src="assets/js/forms.js"></script>
 
 
