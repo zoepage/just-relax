@@ -6,6 +6,7 @@
 
 @import "layout.css";	/* define your layout */
 @import "modules.css";	/* specs for your modules */
+@import "forms.css";	/* specs for your forms */
 
 /*
 @import "grid.css"; 	// put your grid in here like .1of3

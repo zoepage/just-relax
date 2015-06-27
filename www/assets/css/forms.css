@@ -1,21 +1,23 @@
+/*
 #data-setup1{
-    margin-top: 25px;
     position: absolute;
     display: block;
     z-index: 1001;
-    margin-right: -100%;
+    margin-right: 0;
 }
 
 #data-setup2{
     position: absolute;
     display: block;
     z-index: 1002;
-    margin-right: -200%;
+    margin-right: -100%;
 }
 
 #data-setup3{
     position: absolute;
     display: block;
     z-index: 1003;
-    margin-right: -300%;
+    margin-right: -200%;
 }
+
+*/
