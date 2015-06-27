@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+/*
+@font-face { font-family: 'Montserrat-Regular';
+	src: url('../fonts/Montserrat-Regular.otf') format('truetype');
+}
+*/
+@font-face { font-family: 'Montserrat-Light';
+	src: url('../fonts/Montserrat-Light.otf') format('truetype');
+}
+
+/* ==========================================================================
+   basic layout
+   ========================================================================== */
+
+body {
+	font-size: 16px;
+	line-height: 1.4em;
+	font-family: Montserrat-Light;
+}
+
+
+
+.section-background-head-image {
+	background: url('../img/panorama-trails-catalunya.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 800px;
+}
+
+.section-claim {
+	margin-top: 15px;
+	margin-bottom: 50px;
+	padding: 5px;
+	color:#EB6E77;
+	text-align: center;
+ }
+
+.claim-image{
+	margin-top: 200px;
+}
+
+.what-are-we-doing {
+	height: 300px;
+
+}
+
+.headlines {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	text-align: center;
+	font-size: 26px;
+	color:#EB6E77;
+}
+
+
+.section-background-middle-image {
+	background: url('../img/test.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 800px;
+}

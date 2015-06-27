@@ -1,0 +1,30 @@
+{
+  "name": "just-relax",
+  "version": "0.1.0",
+  "type": "app",
+  "dependencies": {
+    "hoodie-server": "3.1.1",
+    "hoodie-plugin-appconfig": "~0.1.0",
+    "hoodie-plugin-email": "~0.1.1",
+    "hoodie-plugin-users": "0.1.0"
+  },
+  "scripts": {
+    "start": "node node_modules/hoodie-server/bin/start"
+  },
+  "hoodie": {
+    "plugins": [
+      "hoodie-plugin-appconfig",
+      "hoodie-plugin-email",
+      "hoodie-plugin-users"
+    ]
+  },
+  "gitHead": "64ae8a1d3d269a0de630c9bc4e581e00612e64d9",
+  "readme": "# Boilerplate for new Hoodie App\n\nYou can start to build your (mobile) app in a fingersnap.\n\n\n\n## Installation\n\n`$ hoodie new appName -t \"zoepage/hoodie-moufle\" `\n\n\n## Including\n\n+ jQuery-1.9.1\n+ Skeleton 1.2\n+ Bootstrap 3\n\nindex.html\n+ hoodie-accountbar (SignIn / SignOut)\n+ including all (css + js) files you need\n\nmain.css (OO-CSS structure)\n+ layout.css \n+ modules.css\n\nmain.js\n+ init hoodie",
+  "readmeFilename": "README.md",
+  "description": "You can start to build your (mobile) app in a fingersnap.",
+  "_id": "just-relax@0.1.0",
+  "_shasum": "ccedb889e69c9a3dc5706f57a93d2f1c7e95db15",
+  "_from": "zoepage/just-relax",
+  "_resolved": "git://github.com/zoepage/just-relax.git#eb43b5356a7da43643f716e3c01090cb673bb728",
+  "_fromGithub": true
+}
