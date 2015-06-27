@@ -128,3 +128,26 @@ body {
 ::-moz-placeholder { color:#00615f !important; } /* firefox 19+ */
 :-ms-input-placeholder { color:#00615f !important; } /* ie */
 input:-moz-placeholder { color:#00615f !important; }
+
+#output {
+	list-style: none;
+	display: inline-block;
+	margin-top: 10px;
+}
+
+#output li {
+	min-height: 150px; 
+}
+
+#output li img {
+	height: 100px; 
+	width: 100px;
+	margin-right: 20px;
+}
+
+.l {
+	float: left;
+}
+.r {
+	float:right;
+}
