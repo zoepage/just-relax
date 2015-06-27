@@ -17,7 +17,7 @@ var submitSignUp = function submitSignUp(){
   
   hoodie.account.signIn(usr, pwd).done(function(){
     if(hoodie.account.username) {
-      location.href = 'http://127.0.0.1:6076/dashboard.html'
+      location.href = 'dashboard.html'
     }
   })
   return false;
