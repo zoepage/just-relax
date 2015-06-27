@@ -40,87 +40,73 @@
 
 <body>
 
-<div class="container">
+<div class="container" id="settings-init">
 
   <!-- Section Personal Data -->
-  <div class="col-md-6" id="data-setup1">
+  <div class="col-md-offset-3 col-md-6" id="data-setup1">
     <div class="headlines">Personal Data</div>
     <form role="form">
       <div class="form-group">
-        <label for="name">Name:</label>
+        <label for="name">What's your name?</label>
         <input type="name" class="form-control" id="name">
       </div>
-
-      <div class="form-group">
-        <label for="email">Email address:</label>
-        <input type="email" class="form-control" id="email">
-      </div>
-      <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd">
-      </div>
-      <button type="submit" class="btn btn-default">Update your Dataset</button>
+      <a href="dashboard.html" class="btn btn-danger">Remind me later</a>
+      <button type="submit" class="btn btn-success"  data-next="2">Go to Step 2 of 3</button>
     </form>
   </div>
 
   <!-- Section Travel Data -->
 
-  <div class="col-md-offset-6" id="data-setup2">
+  <div class="col-md-offset-3 col-md-6 hide" id="data-setup2" >
     <div class="headlines">Travel related Data</div>
     <form role="form">
       <div class="form-group">
-        <label for="vacation_days">How much Days for vacation are left?:</label>
-        <input type="text" class="form-control" id="vacation_days">
+        <label for="vacDays">How much Days for vacation are left?:</label>
+        <input type="text" class="form-control" id="vacDays">
       </div>
       <div class="form-group">
         <label for="budget">How many Budget do you have?</label>
         <input type="text" class="form-control" id="budget">
       </div>
       <div class="form-group">
-        <label for="distance">Whats the max distance you would like to travel?:</label>
+        <label for="distance">Whats the max. distance you would like to travel?:</label>
         <input type="password" class="form-control" id="distance">
       </div>
       <div class="form-group">
-        <label for="vehicel">Whats your favourite travelling vehicel?</label>
-        <input type="text" class="form-control" id="vehicel">
+        <label for="travelMode">Whats your favourite travelling vehicel?</label>
+        <input type="text" class="form-control" id="travelMode">
       </div>
-      <button type="submit" class="btn btn-default">Update</button>
+      <button type="submit" class="btn btn-success" data-next="3">Go to Step 3 of 3</button>
     </form>
   </div>
 
   <!-- Section Constrains -->
-  <div class="col-md-offset-6" id="data-setup3">
+  <div class="col-md-offset-3 col-md-6 hide" id="data-setup3">
     <div class="headlines">Important Informations?</div>
     <form role="form">
       <div class="form-group">
-        <label for="destination">Do you have a favourite destination?</label>
-        <input type="text" class="form-control" id="destination">
+        <label for="favDestination">What is your prefered destination?</label>
+        <input type="text" class="form-control" id="favDestination">
       </div>
+      <div class="form-group">
+        <label for="kids">Do you have kids with you? If yes, how many?</label>
+        <input type="text" class="form-control" id="kids">
+      </div>
+      <div class="form-group">
+        <label for="adults">Do you have adults with you? If yes, how many?</label>
+        <input type="text" class="form-control" id="adults">
+      </div>
+      <div class="form-group">
+        <label for="dog">Do you have Dogs with you? If yes, how many?</label>
+        <input type="text" class="form-control" id="dog">
+      </div>
+      <a href="./dashboard.html" class="btn btn-success">Finish</a>
+
     </form>
-    <h4>Special needs:</h4>
-    <div class="checkbox">
-      <label><input type="checkbox" value="">Children friendly?</label>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox" value="">Animal friendly?</label>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox" value="">Disability Access?</label>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox" value="">Elderly people?</label>
-    </div>
-    <p>* Multiple choices are possible</p>
-
-
   </div>
 </div>
 
 
-
-
-
-<script src="assets/js/forms.js"></script>
 <script src="assets/vendor/jquery-2.1.0.min.js"></script>
 <script src="assets/vendor/bootstrap/bootstrap.js"></script>
 <!-- Load the dynamic version of hoodie.js that includes all the plugin code-->
@@ -129,6 +115,7 @@
 <script src="assets/vendor/hoodie.accountbar.bootstrap.js"></script>
 <script src="assets/vendor/bootstrap.modalform.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/forms.js"></script>
 
 
 <!-- End Document

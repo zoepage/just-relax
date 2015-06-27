@@ -21,3 +21,14 @@
 }
 
 */
+#settings-init{
+    min-height: 700px;
+}
+#settings-init .col-md-6 {
+    margin-top: 15%;
+}
+
+
+.hide{
+    display: none;
+}
