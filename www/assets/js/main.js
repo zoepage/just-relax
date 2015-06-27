@@ -37,3 +37,27 @@ var result = function result(event) {
     $("#output").append(html);
   });
 }
+
+if (window.recommender) {
+  var engine = recommender({
+    dates: dates,
+    lastVacation: moment(),
+    blockedWork: [
+      {
+        from: '2015-06-28',
+        to: '2015-06-30',
+        days: 3
+      }
+    ],
+    blockedVac: [
+      {
+        from: '2015-07-03',
+        to: '2015-07-13',
+        days: 2
+      }
+    ]
+  })
+
+  var scores = engine.scores()
+  console.log(engine.blocks(scores))
+}
