@@ -7,6 +7,11 @@
 }
 */
 @font-face { 
+	font-family: 'Montserrat-UltraLight';
+	src: url('../fonts/Montserrat-UltraLight.otf') format('truetype');
+}
+
+@font-face { 
 	font-family: 'Montserrat-Light';
 	src: url('../fonts/Montserrat-Light.otf') format('truetype');
 }
@@ -90,11 +95,12 @@ body {
 
 #sign-up input[type=email],
 #sign-up input[type=password] {
-	border: 2px solid #fff;
-	background-color: transparent;
+	border: 0 none;
+	background-color: #fff;
 	font-size: 20px;
 	height: 36px;
 	color: #00615f;
+	font-family: Montserrat-UltraLight;
 }
 
 #sign-up button {
@@ -112,7 +118,7 @@ body {
 	margin-top: 25px;
 }
 
-::-webkit-input-placeholder { color:#fff !important; }
+::-webkit-input-placeholder { color:#00615f !important; }
 ::-moz-placeholder { color:#00615f !important; } /* firefox 19+ */
 :-ms-input-placeholder { color:#00615f !important; } /* ie */
 input:-moz-placeholder { color:#00615f !important; }
