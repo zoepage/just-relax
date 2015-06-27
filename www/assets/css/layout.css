@@ -20,8 +20,6 @@ body {
 	font-family: Montserrat-Light;
 }
 
-
-
 .section-background-head-image {
 	background: url('../img/panorama-trails-catalunya.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -32,20 +30,18 @@ body {
 }
 
 .section-claim {
-	margin-top: 15px;
 	margin-bottom: 50px;
-	padding: 5px;
 	color:#EB6E77;
 	text-align: center;
+	font-size: 48px;
  }
 
 .claim-image{
 	margin-top: 200px;
 }
 
-.what-are-we-doing {
-	height: 300px;
-
+.what-is-it {
+	margin-bottom: 50px;
 }
 
 .headlines {
@@ -58,10 +54,15 @@ body {
 
 
 .section-background-middle-image {
-	background: url('../img/test.jpg') no-repeat center center fixed;
+	background: url('../img/paris.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	height: 800px;
 }
+
+.sign-in {
+	margin-top: 20px;
+}
+
