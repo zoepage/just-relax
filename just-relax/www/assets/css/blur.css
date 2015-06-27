@@ -1,0 +1,14 @@
+.hero {
+    position: relative;
+    width: 100%;
+    padding: 2em 0;
+    overflow: hidden; // Hide overflow to contain the background
+}
+.hero__background {
+    background-repeat: no-repeat;
+    left: 0;
+    width: 200%;
+    height: 400px;
+    -webkit-filter: blur(1px);
+    -webkit-transform: translate3d(0, 0, 0);
+}
