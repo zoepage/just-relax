@@ -6,18 +6,37 @@
 	src: url('../fonts/Montserrat-Regular.otf') format('truetype');
 }
 */
-@font-face { font-family: 'Montserrat-Light';
+@font-face { 
+	font-family: 'Montserrat-Light';
 	src: url('../fonts/Montserrat-Light.otf') format('truetype');
 }
 
+@font-face { 
+	font-family: 'Pacifico';
+	src: url('../fonts/Pacifico.ttf') format('truetype');
+}
 /* ==========================================================================
    basic layout
    ========================================================================== */
 
 body {
 	font-size: 16px;
-	line-height: 1.4em;
+	line-height: 1.5em;
 	font-family: Montserrat-Light;
+}
+
+#about {
+	padding: 60px 50px 100px;
+	min-height: 600px;
+}
+
+#about .headlines {
+	margin-top: 55px;	
+	color:#EB6E77;
+}
+
+#about p {
+	margin-top: 35px;
 }
 
 .section-background-head-image {
@@ -26,7 +45,7 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	height: 800px;
+	min-height: 800px;
 }
 
 .section-claim {
@@ -40,16 +59,13 @@ body {
 	margin-top: 200px;
 }
 
-.what-is-it {
-	margin-bottom: 50px;
-}
-
 .headlines {
 	margin-top: 25px;
 	margin-bottom: 25px;
 	text-align: center;
-	font-size: 26px;
+	font-size: 36px;
 	color:#EB6E77;
+	font-family: Pacifico;
 }
 
 
@@ -59,10 +75,44 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	height: 800px;
+	min-height: 700px;
 }
 
-.sign-in {
-	margin-top: 20px;
+#sign-up {
+	margin-top: 35%;
 }
 
+#sign-up .headlines {
+	font-size: 72px;
+	color: #ffffff;
+	margin-bottom: 50px;
+}
+
+#sign-up input[type=email],
+#sign-up input[type=password] {
+	border: 2px solid #fff;
+	background-color: transparent;
+	font-size: 20px;
+	height: 36px;
+	color: #00615f;
+}
+
+#sign-up button {
+	background-color: #00615f;
+	border: 0 none;
+	color: #fff;
+	height: 50px;
+	width: 100%;
+	font-size: 18px;
+	margin-top: 35px;
+}
+
+#sign-up input
+{	
+	margin-top: 25px;
+}
+
+::-webkit-input-placeholder { color:#fff !important; }
+::-moz-placeholder { color:#00615f !important; } /* firefox 19+ */
+:-ms-input-placeholder { color:#00615f !important; } /* ie */
+input:-moz-placeholder { color:#00615f !important; }
