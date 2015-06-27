@@ -6,7 +6,7 @@ We all loooove our work right?
 Especially the ones, who code, don't leave their work behind when leaving the office!
 We are still thinking about our application logic, while we are at the gym. 
 If the new algorithm will improve the systems performance during dinner.
-Discussing who to improve the UX of our application with our friends over drinks.
+Discussing how to improve the UX of our application with our friends over drinks.
 
 Many of us are so blessed, that works doesn't even feel like work!
 So we don't event realize how much extra hours we put in our work and projects.
