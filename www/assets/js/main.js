@@ -27,7 +27,6 @@ var submitSignUp = function submitSignUp(){
 var result = function result(event) {
   var e = event.target;
   var urlReq = e.getAttribute('data-url');
-  console.log(urlReq);
 
   $.ajax({
     url: urlReq
