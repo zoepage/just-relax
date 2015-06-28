@@ -6,7 +6,8 @@ var hoodie  = new Hoodie();
 // on ready calls all binds
 $(function () {
   if(hoodie.account.username) {
-    $('#username').append(hoodie.account.username )
+    $('#username').append(hoodie.account.username)
+    $('#about h2').append(hoodie.account.username )
   }
   $('#logout').bind('click', signOutUsr)
   $('#sign-up').bind('submit', submitSignUp)
