@@ -223,6 +223,10 @@ input:-moz-placeholder { color:#00615f !important; }
 	background-color: #326c68;
 }
 
+.bottom-margin {
+	margin-bottom: 20px;
+}
+
 /* dashboard animation */
 
 #work-days,
