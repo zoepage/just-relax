@@ -61,6 +61,26 @@
     <div class="headlines">Travel related Data</div>
     <form role="form">
       <div class="form-group">
+        <label for="daterangeVacation">Blocked for vacation</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="daterangeVacation" />
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="addDaterangeVacation">Add</button>
+          </span>
+        </div>
+      </div>
+      <div class="form-group" id="list-daterange-vacation"></div>
+      <div class="form-group">
+        <label for="daterangeWork">Blocked for work</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="daterangeWork"/>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="addDaterangeWork">Add</button>
+          </span>
+        </div>
+      </div>
+      <div class="form-group" id="list-daterange-work"></div>
+      <div class="form-group">
         <label for="totalVacDays">How many days for vacation do you have in a year?</label>
         <input type="number" class="form-control" id="totalVacDays">
       </div>
@@ -99,11 +119,6 @@
   <div class="col-md-offset-3 col-md-6 hide" id="data-setup3">
     <div class="headlines">Important Informations?</div>
     <form role="form">
-      <div class="form-group">
-        <!-- HIER IST DER DATEPICKER! -->
-        <label for="dateRange">dateRange</label>
-        <p><input type="text" name="daterange" id="dateRange" value="06/01/2015 - 06/07/2015" /></p>
-      </div>
       <div class="form-group">
         <label for="favDestination">What is your prefered destination?</label>
         <input type="text" class="form-control" id="favDestination">

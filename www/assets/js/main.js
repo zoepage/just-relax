@@ -18,6 +18,10 @@ $(function() {
         // location.href = 'index.html';
       })
   }
+
+ if($('#dashboard')) {
+  animateDays({total: 240, left: 77},{total: 24, left: 17});
+  }
   $('#logout').bind('click', signOutUsr);
   $('#sign-up').bind('submit', submitSignUp);
   $('#go-on-vacation').bind('click', result);
@@ -25,9 +29,23 @@ $(function() {
 })
 
 // animation of work/vac days in dashboard
-var animateDays = function animateDays() {
-  alert('jo')
-}
+function animateDays(vacDay, workDay) {
+  var overlay = $('.day-ani')
+  var factorWorkDays = factorForAni(workDay.total, workDay.left);
+  var factorVacDays = factorForAni(vacDay.total, vacDay.left, workDay.total, workDay.left);
+
+
+  $('#vac-days').animate().css({'border-width': (1.25 * factorVacDays)});
+  $('#work-days').css({'border-width': (1.25 * factorWorkDays)});
+
+
+ }
+
+function factorForAni(total, left) {
+  var factor = (-(left / total) * 100) + 100;
+  return factor;
+} 
+
 
 // sign-in on main page
 var submitSignUp = function submitSignUp() {
