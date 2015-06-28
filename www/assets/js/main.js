@@ -6,11 +6,17 @@ var hoodie  = new Hoodie();
 // on ready calls all binds
 $(function () {
   if(hoodie.account.username) {
-    $('#username').append(hoodie.account.username)
-    $('#about h2').append(hoodie.account.username)
-  } else{
-    // console.log((!$('#main') && hoodie.account.username == undefined))   
+    hoodie.store.find('settings', 'user-settings')
+    .done(function(settings) {
+      $('#username').append(settings.name || hoodie.account.username)
+      $('#about h2').append(settings.name || hoodie.account.username )
+    })
+    .fail(function() {
+      $('#username').append(hoodie.account.username)
+      $('#about h2').append(hoodie.account.username)
+      // console.log((!$('#main') && hoodie.account.username == undefined))   
     // location.href = 'index.html';
+    })
   }
   $('#logout').bind('click', signOutUsr);
   $('#sign-up').bind('submit', submitSignUp);
