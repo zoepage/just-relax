@@ -21,15 +21,20 @@ $(function () {
   $('#logout').bind('click', signOutUsr);
   $('#sign-up').bind('submit', submitSignUp);
   $('#go-on-vacation').bind('click', result);
+  $('.day-ani').bind('live', animateDays)
 })
 
+// animation of work/vac days in dashboard
+var animateDays = function animateDays() {
+  alert('jo')
+}
 
 // sign-in on main page
-var submitSignUp = function submitSignUp(){
+var submitSignUp = function submitSignUp() {
   var usr = $('#email').val();
   var pwd = $('#pwd').val();
 
-  hoodie.account.signIn(usr, pwd).done(function(){
+  hoodie.account.signIn(usr, pwd).done(function() {
     if(hoodie.account.username) {
       location.href = 'dashboard.html';
     }
