@@ -58,6 +58,20 @@ var signOutUsr = function signOutUsr () {
   })
 }
 
+var workDays = function workDays() {
+  return {
+    total: totalWorkDays(dates),
+    left:  leftWorkDays(dates).leftWorkDays
+  };
+}
+
+var vecDays = function vecDays(settings) {
+  return {
+    total: settings.totalVecDays,
+    left:  settings.vecDays
+  };
+}
+
 var buildUrl = function buildUrl(from, to) {
   var base = "http://justrelax.rrbone.io/booking/holiday?"
 

@@ -46,10 +46,11 @@ function getData() {
   return {
     name:        val("name"),
 
-    vacDays:     val("vacDays"),
-    budget:      val("budget"),
-    distance:    val("distance"),
-    travelMode:  val("travelMode"),
+    totalVacDays:  val("totalVacDays"),
+    vacDays:       val("vacDays"),
+    budget:        val("budget"),
+    distance:      val("distance"),
+    travelMode:    val("travelMode"),
 
     favDestination: val("favDestination"),
     kids:    val("kids"),
@@ -60,6 +61,7 @@ function getData() {
 function setData(settings) {
   val("name", settings.name),
 
+  val("totalVacDays", settings.totalVacDays),
   val("vacDays", settings.vacDays),
   val("budget", settings.budget),
   val("distance", settings.distance),
