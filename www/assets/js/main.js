@@ -9,11 +9,11 @@ $(function () {
     hoodie.store.find('settings', 'user-settings')
     .done(function(settings) {
       $('#username').append(settings.name || hoodie.account.username)
-      $('#about h2').append(settings.name || hoodie.account.username )
+      $('h2.welcoming').append(settings.name || hoodie.account.username )
     })
     .fail(function() {
       $('#username').append(hoodie.account.username)
-      $('#about h2').append(hoodie.account.username)
+      $('h2.welcoming').append(hoodie.account.username)
       // console.log((!$('#main') && hoodie.account.username == undefined))
     // location.href = 'index.html';
     })
