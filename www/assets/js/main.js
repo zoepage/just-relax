@@ -53,7 +53,7 @@ function animateDays(vacDay, workDay) {
 function factorForAni(total, left) {
   var factor = (-(left / total) * 100) + 100;
   return factor;
-} 
+}
 
 // sign-in on main page
 var submitSignUp = function submitSignUp() {
