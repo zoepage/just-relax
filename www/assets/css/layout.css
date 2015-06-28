@@ -248,6 +248,14 @@ input:-moz-placeholder { color:#00615f !important; }
 	margin-right: 20%;
 }
 
+.overlay {
+	margin: 0 auto;
+	height: auto;  
+	top: 180px;
+  left: 20px;
+  position: relative;
+}
+
 .green {
 	border-color: #00615f;
 }

@@ -37,9 +37,18 @@ function animateDays(vacDay, workDay) {
   var factorVacDays = factorForAni(vacDay.total, vacDay.left, workDay.total, workDay.left);
 
 
-  $('#vac-days').animate().css({'border-width': (1.25 * factorVacDays)});
-  $('#work-days').css({'border-width': (1.25 * factorWorkDays)});
 
+  $('#vac-days').animate({
+    'border-width': (1.25 * factorVacDays)
+  }, 1400, function() {
+    $('#vac-days .overlay').append(vacDay.left + ' / ' + vacDay.total).fadeIn();
+  });
+
+  $('#work-days').animate({
+    'border-width': (1.25 * factorWorkDays)
+  }, 1400, function() {
+    $('#work-days .overlay').append(workDay.left + ' / ' + workDay.total).fadeIn();
+  });
 
  }
 
