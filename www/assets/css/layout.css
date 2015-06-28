@@ -129,6 +129,11 @@ body {
 :-ms-input-placeholder { color:#00615f !important; } /* ie */
 input:-moz-placeholder { color:#00615f !important; }
 
+#go-on-vacation {
+	margin-top: 25px;
+	margin-right: 30px;
+}
+
 #output {
 	list-style: none;
 	display: inline-block;
@@ -136,7 +141,9 @@ input:-moz-placeholder { color:#00615f !important; }
 }
 
 #output li {
-	min-height: 150px; 
+	height: 124px; 
+	border-bottom: 1px solid rgba(46, 105, 105, 0.2);
+	padding-top: 12px;
 }
 
 #output li img {
@@ -145,6 +152,43 @@ input:-moz-placeholder { color:#00615f !important; }
 	margin-right: 20px;
 }
 
+#output li h3 {
+	margin-left: 120px;
+	margin-top: -102px;
+}
+
+#output li .btn-danger {
+	margin-top: 48px;
+}
+
+#menu-bar {
+	background-color: #00615f;
+	display: block;
+	height: 50px;
+}
+
+#menu-bar a,
+#menu-bar p {
+	line-height: 50px;
+	margin-right: 10px;
+	color: #fff !important;
+	border-left:1px solid #326c68;
+	padding-left: 15px;
+	font-family: Montserrat-UltraLight;
+}
+
+#menu-bar p:last-child {
+	border-left:0 none;
+}
+
+#logout {
+	cursor: pointer;
+}
+
+#logout:hover {
+	text-decoration: underline;
+}
+// helper
 .l {
 	float: left;
 }

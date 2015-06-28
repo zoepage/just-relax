@@ -5,6 +5,10 @@ var hoodie  = new Hoodie();
 
 // on ready calls all binds
 $(function () {
+  if(hoodie.account.username) {
+    $('#username').append(hoodie.account.username )
+  }
+  $('#logout').bind('click', signOutUsr)
   $('#sign-up').bind('submit', submitSignUp)
   $('#go-on-vacation').bind('click', result)
 })
@@ -19,8 +23,19 @@ var submitSignUp = function submitSignUp(){
     if(hoodie.account.username) {
       location.href = 'dashboard.html'
     }
+  }).fail(function () {
+    hoodie.account.signUp(usr, pwd, pwd).done(function(){
+    if(hoodie.account.username) {
+      location.href = 'dashboard.html'
+    }
+  })
   })
   return false;
+}
+
+var signOutUsr = function signOutUsr () {
+  hoodie.account.signOut()
+  location.href = 'index.html'
 }
 
 // return results
@@ -37,7 +52,8 @@ var result = function result(event) {
 
     res.forEach(function (obj) {
       var li = '<li><a class="btn btn-lage btn-danger r" href="' + obj.link + '" target="_blank">' + obj.price + ' € / p. n. &amp; p. <br /> Book now!</a> <img class="l" src="' + obj.image + '"/> <h3 class="l">' + obj.name + '<br /><small>' + obj.city + '</small></h3></li>'
-      $("#output").append(li);
+      $("#output").append(li).fadeIn().removeClass('hide');
+      $('#dashboard').fadeOut().addClass('hide');
     })
   });
 }
