@@ -6,8 +6,15 @@ var hoodie  = new Hoodie();
 // on ready calls all binds
 $(function () {
   if(hoodie.account.username) {
-    $('#username').append(hoodie.account.username)
-    $('#about h2').append(hoodie.account.username )
+    hoodie.store.find('settings', 'user-settings')
+    .done(function(settings) {
+      $('#username').append(settings.name || hoodie.account.username)
+      $('#about h2').append(settings.name || hoodie.account.username )
+    })
+    .fail(function() {
+      $('#username').append(hoodie.account.username)
+      $('#about h2').append(hoodie.account.username )
+    })
   }
   $('#logout').bind('click', signOutUsr)
   $('#sign-up').bind('submit', submitSignUp)
