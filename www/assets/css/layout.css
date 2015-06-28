@@ -232,19 +232,8 @@ input:-moz-placeholder { color:#00615f !important; }
 	position: relative;
 	z-index: 2001;
 	border-radius: 100%;
-}
-
-#work-days-overlay,
-#vac-days-overlay {
-	width: 20px;
-	height: 20px;
-	position: relative;
-	z-index: 2002;
-	border-radius: 100%;
 	background-color: white;
-	margin-left: 115px;
-	margin-right:115px;
-
+	border-style: solid;
 }
 
 #work-days {
@@ -256,13 +245,13 @@ input:-moz-placeholder { color:#00615f !important; }
 }
 
 .green {
-	background-color: #00615f;
+	border-color: #00615f;
 }
 
 .orange {
-	background-color: #f0ad4e;
+	border-color: #f0ad4e;
 }
 
 .red {
-	background-color: #d9534f;
+	border-color: #d9534f;
 }
