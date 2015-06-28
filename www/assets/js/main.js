@@ -34,15 +34,13 @@ function animateDays(vacDay, workDay) {
   var factorWorkDays = factorForAni(workDay.total, workDay.left);
   var factorVacDays = factorForAni(vacDay.total, vacDay.left, workDay.total, workDay.left);
 
-
-
-  $('#vac-days').animate({
+  $('#vac-days').addClass(createLabel(factorVacDays)).animate({
     'border-width': (1.25 * factorVacDays)
   }, 1400, function() {
     $('#vac-days .overlay').append(vacDay.left + ' / ' + vacDay.total).fadeIn();
   });
 
-  $('#work-days').animate({
+  $('#work-days').addClass(createLabel(factorWorkDays)).animate({
     'border-width': (1.25 * factorWorkDays)
   }, 1400, function() {
     $('#work-days .overlay').append(workDay.left + ' / ' + workDay.total).fadeIn();
@@ -51,9 +49,19 @@ function animateDays(vacDay, workDay) {
  }
 
 function factorForAni(total, left) {
-  var factor = (-(left / total) * 100) + 100;
+  var factor = ((left / total) * 100);
   return factor;
 } 
+
+function createLabel(fac) {
+  if(fac < 33) {
+    return 'red';
+  } else if (fac >= 33 && fac < 66) {
+    return 'orange';
+  } else {
+    return 'green';
+  }
+}
 
 
 // sign-in on main page

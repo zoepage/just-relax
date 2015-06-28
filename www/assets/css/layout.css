@@ -40,6 +40,10 @@ body {
 	color:#EB6E77;
 }
 
+#dashboard .headlines {
+	margin-bottom: 40px;
+}
+
 #about p {
 	margin-top: 35px;
 }
@@ -254,6 +258,17 @@ input:-moz-placeholder { color:#00615f !important; }
 	top: 226px;
   left: 70px;
   position: absolute;
+}
+
+#headVac {
+	margin-left:265px;
+		font-family: Montserrat-UltraLight;
+}
+
+#headWork {
+	margin-right:295px;
+	margin-top: -3px;	
+		font-family: Montserrat-UltraLight;
 }
 
 .green {
