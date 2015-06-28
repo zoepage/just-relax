@@ -56,6 +56,7 @@
         <label for="name">What's your name?</label>
         <input type="name" class="form-control" id="name">
       </div>
+
       <button class="btn btn-success" id="save-personal-data">Update your personal data</button>
       <span class="save-success hidden">✓</span>
     </form>
@@ -65,6 +66,11 @@
   <div class="col-md-offset-3 col-md-6 spare-line" >
     <div class="headlines">Travel related Data</div>
     <form role="form">
+      <!-- HIER IST DER DATEPICKER! -->
+      <div class="form-group">
+        <label for="dateRange">dateRange</label>
+        <p><input type="text" name="daterange" id="dateRange" value="06/01/2015 - 06/07/2015" /></p>
+      </div>
       <div class="form-group">
         <label for="vacDays">How much Days for vacation are left?:</label>
         <input type="number" class="form-control" id="vacDays">
@@ -123,18 +129,18 @@
   </div>
 </div>
 
-
-
 <script src="assets/vendor/jquery-2.1.0.min.js"></script>
 <script src="assets/vendor/bootstrap/bootstrap.js"></script>
 <!-- Load the dynamic version of hoodie.js that includes all the plugin code-->
 <script src="/_api/_files/hoodie.js"></script>
-
+<script src="assets/js/forms.js"></script>
 <script src="assets/vendor/hoodie.accountbar.bootstrap.js"></script>
+<script src="assets/vendor/moment.js"></script>
+<script src="assets/js/date-range.js"></script>
 <script src="assets/vendor/bootstrap.modalform.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/settings.js"></script>
-<script src="assets/js/forms.js"></script>
+
 
 
 <!-- End Document
