@@ -4,7 +4,7 @@ $(function () {
   $('#finish').bind('click', saveSettings);
 
   $("#save-personal-data").bind('click', saveData(["name"]));
-  $("#save-travel-data").bind('click', saveData(["vacDays", "budget", "distance", "travelMode"]));
+  $("#save-travel-data").bind('click', saveData(["totalVacDays", "vacDays", "budget", "distance", "travelMode"]));
   $("#save-important-information").bind('click', saveData(["favDestination", "kids", "adults", "dog"]));
 
   hoodie.store.findOrAdd('settings', "user-settings", {})
