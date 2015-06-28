@@ -167,19 +167,9 @@
     var now = moment().startOf('day');
     var year = now.year();
 
-    freeDays.sort(function(a,b) {
-      a = moment(a).startOf('day');
-      b = moment(b).startOf('day');
-      if (a < b) return -1;
-      if (a > b) return +1;
-      return 0;
-    })
-
     for (var i = 0; i < freeDays.length; i += 1) {
       var free = moment(freeDays[i].from).startOf('day');
       if (startIdx == -1 && free.utc() >= now.utc()) {
-        console.log({ free: free, now: now })
-        console.log("idx is ", i)
         startIdx = i;
       }
 
@@ -220,11 +210,8 @@
       endIdx++;
     }
 
-    console.log(startIdx, endIdx);
     var totalDays = moment().endOf('year').diff(moment().startOf('year'), 'days')+1
     var freeThisYear = freeDays.slice(startIdx,endIdx).length;
-
-    console.log(totalDays, freeThisYear);
 
     return totalDays-freeThisYear;
   }
