@@ -52,17 +52,41 @@
    <div class="col-md-12"> 
      <h2 class="headlines">Moin </h2>
      <section id="dashboard">
-       <p>
-        We all loooove our work right? Especially the ones, who code, don't leave their work behind when leaving the office! We are still thinking about our application logic, while we are at the gym. If the new algorithm will improve the systems performance during dinner. Discussing how to improve the UX of our application with our friends over drinks.
-      </p>
-      <button id="go-on-vacation" class="btn btn-large btn-success r" data-url="http://justrelax.rrbone.io/booking/holiday?from=2015-08-08&to=2015-08-20&location=Deutschland">I need a vacation!</button>
+      <div id="vac-days" class="day-ani green r">
+        <div id="vac-days-overlay"></div>
+      </div>
+      
+      <div id="work-days" class="day-ani red">
+        <div id="work-days-overlay"></div>
+      </div>
+      
+      <br class="clear" />
+
+
+      <button id="go-on-vacation" class="btn btn-large btn-success r" data-url="http://justrelax.rrbone.io/booking/holiday?from=2015-08-08&to=2015-08-20&location=Deutschland">There is always time for a vacation!</button>
+
+      <button id="go-on-vacation" class="btn btn-large btn-warning r" data-url="http://justrelax.rrbone.io/booking/holiday?from=2015-08-08&to=2015-08-20&location=Deutschland">Check out your vacation options!</button>
+
+      <button id="go-on-vacation" class="btn btn-large btn-danger r" data-url="http://justrelax.rrbone.io/booking/holiday?from=2015-08-08&to=2015-08-20&location=Deutschland">You totally need a vacation!</button>
     </section>
   </div>
 
-  <ul class="col-md-12 output hide">
-    <dt class="r">Option 1: 29.7. - 14.8.</dt>
+  <div class="col-md-12 hide output">
+    <dt class="r output-option-1">Option 1:</dt>
     <br class="clear" />
-  </ul>
+    <ul class="col-md-12 output-1 hide">
+    </ul>
+
+    <dt class="r output-option-2">Option 2:</dt>
+    <br class="clear" />
+    <ul class="col-md-12 output-2 hide">
+    </ul>
+
+    <dt class="r output-option-3">Option 3:</dt>
+    <br class="clear" />
+    <ul class="col-md-12 output-3 hide">
+    </ul>
+  </div>
 </div>
 
 <script src="assets/vendor/jquery-2.1.0.min.js"></script>

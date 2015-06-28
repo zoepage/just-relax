@@ -14,22 +14,27 @@ $(function () {
     .fail(function() {
       $('#username').append(hoodie.account.username)
       $('#about h2').append(hoodie.account.username)
-      // console.log((!$('#main') && hoodie.account.username == undefined))   
+      // console.log((!$('#main') && hoodie.account.username == undefined))
     // location.href = 'index.html';
     })
   }
   $('#logout').bind('click', signOutUsr);
   $('#sign-up').bind('submit', submitSignUp);
   $('#go-on-vacation').bind('click', result);
+  $('.day-ani').bind('live', animateDays)
 })
 
+// animation of work/vac days in dashboard
+var animateDays = function animateDays() {
+  alert('jo')
+}
 
 // sign-in on main page
-var submitSignUp = function submitSignUp(){
+var submitSignUp = function submitSignUp() {
   var usr = $('#email').val();
   var pwd = $('#pwd').val();
 
-  hoodie.account.signIn(usr, pwd).done(function(){
+  hoodie.account.signIn(usr, pwd).done(function() {
     if(hoodie.account.username) {
       location.href = 'dashboard.html';
     }
@@ -58,23 +63,46 @@ var result = function result(event) {
   var e = event.target;
   var urlReq = e.getAttribute('data-url');
 
-  $.ajax({
-    url: urlReq
-  })
-  .done(function( data ) {
-    var dom = $(".output");
-    var res = data.results;
+  var base = "http://justrelax.rrbone.io/booking/holiday?"
 
-    res.forEach(function (obj) {
-      var li = '<li><a class="btn btn-lage btn-danger r" href="' + obj.link + '" target="_blank">' + obj.price + ' € / p. n. &amp; p. <br /> Book now!</a> <img class="l" src="' + obj.image + '"/> <h3 class="l">' + obj.name + '<br /><small>' + obj.city + '</small></h3></li>'
-      $(".output").append(li).fadeIn().removeClass('hide');
-      $('#dashboard').fadeOut().addClass('hide');
-    })
-  });
+  var scores = window.engine.scores()
+  var recommends = window.engine.blocks(scores);
+
+  for (var i=1; i<=3; i++) {
+    (function(i) {
+      var from = recommends[i-1].start.date;
+      var to = recommends[i-1].end.date;
+      var location = "Deutschland";
+      var urlReq = base +
+        "from=" + from +
+        "&to=" + to +
+        "&location=" + location;
+      $.ajax({
+        url: urlReq
+      })
+      .done(function( data ) {
+        var dom = $(".output");
+        var res = data.results;
+
+        var f = moment(from).format("DD.MM.YYYY");
+        var t = moment(to).format("DD.MM.YYYY");
+        $(".output-option-"+i).text(
+          "Option " + i + ": " + f + " - " + t
+        )
+
+        res.slice(0,3).forEach(function (obj) {
+          var li = '<li><a class="btn btn-lage btn-danger r" href="' + obj.link + '" target="_blank">' + obj.price + ' € / p. n. &amp; p. <br /> Book now!</a> <img class="l" src="' + obj.image + '"/> <h3 class="l">' + obj.name + '<br /><small>' + obj.city + '</small></h3></li>'
+          $(".output-"+i).append(li).fadeIn().removeClass('hide');;
+        })
+      });
+    })(i);
+  }
+  $(".output").fadeIn().removeClass('hide');
+  $('#dashboard').fadeOut().addClass('hide');
 }
 
 if (window.recommender) {
-  var engine = recommender({
+  window.engine = recommender({
     dates: dates,
     lastVacation: moment(),
     blockedWork: [
@@ -92,7 +120,4 @@ if (window.recommender) {
       }
     ]
   })
-
-  var scores = engine.scores()
- console.log(engine.blocks(scores))
 }
