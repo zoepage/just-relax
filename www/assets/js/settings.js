@@ -7,9 +7,7 @@ $(function () {
   $("#save-travel-data").bind('click', saveData(["vacDays", "budget", "distance", "travelMode"]));
   $("#save-important-information").bind('click', saveData(["favDestination", "kids", "adults", "dog"]));
 
-  var id = "user-settings";
-
-  hoodie.store.find('settings', id)
+  hoodie.store.findOrAdd('settings', "user-settings", {})
   .done(function(settings) {
     setData(settings)
   })
@@ -74,15 +72,13 @@ function setData(settings) {
 }
 
 var saveSettings = function saveSettings(e) {
-  var id = "user-settings";
-
   e.preventDefault();
 
   var data = getData();
 
-  hoodie.store.findOrAdd('settings', id, {})
+  hoodie.store.findOrAdd('settings', "user-settings", {})
   .done(function(obj) {
-    hoodie.store.update('settings', id, data)
+    hoodie.store.update('settings', "user-settings", data)
     .done(function(settings) {
       location.href = "dashboard.html";
     })
