@@ -62,12 +62,12 @@ var result = function result(event) {
     url: urlReq
   })
   .done(function( data ) {
-    var dom = $("#output");
+    var dom = $(".output");
     var res = data.results;
 
     res.forEach(function (obj) {
       var li = '<li><a class="btn btn-lage btn-danger r" href="' + obj.link + '" target="_blank">' + obj.price + ' € / p. n. &amp; p. <br /> Book now!</a> <img class="l" src="' + obj.image + '"/> <h3 class="l">' + obj.name + '<br /><small>' + obj.city + '</small></h3></li>'
-      $("#output").append(li).fadeIn().removeClass('hide');
+      $(".output").append(li).fadeIn().removeClass('hide');
       $('#dashboard').fadeOut().addClass('hide');
     })
   });
