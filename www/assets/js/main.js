@@ -119,6 +119,8 @@ var result = function result(event) {
             "Option " + i + ": " + f + " - " + t
           )
 
+          $(".output").fadeIn().removeClass('hide');
+
           res.slice(0,3).forEach(function (obj) {
             var li = '<li><a class="btn btn-lage btn-danger r" href="' + obj.link + '" target="_blank">' + obj.price + ' € / p. n. &amp; p. <br /> Book now!</a> <img class="l" src="' + obj.image + '"/> <h3 class="l">' + obj.name + '<br /><small>' + obj.city + '</small></h3></li>'
             $(".output-"+i).append(li).fadeIn().removeClass('hide');;
@@ -127,7 +129,6 @@ var result = function result(event) {
       });
     })(i);
   }
-  $(".output").fadeIn().removeClass('hide');
   $('#dashboard').fadeOut().addClass('hide');
 }
 
