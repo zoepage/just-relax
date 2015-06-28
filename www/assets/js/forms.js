@@ -30,7 +30,7 @@ $(function() {
     }
 
     $el = $(
-      '<div class="input-group">' +
+      '<div class="input-group" style="margin-bottom:5px">' +
         '<input disabled type="text" class="form-control" name="daterange-vacation[]" value="' + $val.val() + '" />' +
         '<span class="input-group-btn">' +
           '<button class="btn btn-default" type="button" name="remove-range">&times;</button>' +
@@ -60,7 +60,7 @@ $(function() {
     }
 
     $el = $(
-      '<div class="input-group">' +
+      '<div class="input-group" style="margin-bottom:5px">' +
         '<input disabled type="text" class="form-control" name="daterange-work[]" value="' + $val.val() + '" />' +
         '<span class="input-group-btn">' +
           '<button class="btn btn-default" type="button" name="remove-range">&times;</button>' +
