@@ -1,22 +1,22 @@
 'use strict'
 
 // initialize Hoodie
-var hoodie  = new Hoodie();
+var hoodie = new Hoodie();
 
 // on ready calls all binds
-$(function () {
-  if(hoodie.account.username) {
+$(function() {
+  if (hoodie.account.username) {
     hoodie.store.find('settings', 'user-settings')
-    .done(function(settings) {
-      $('#username').append(settings.name || hoodie.account.username)
-      $('h2.welcoming').append(settings.name || hoodie.account.username )
-    })
-    .fail(function() {
-      $('#username').append(hoodie.account.username)
-      $('h2.welcoming').append(hoodie.account.username)
-      // console.log((!$('#main') && hoodie.account.username == undefined))
-    // location.href = 'index.html';
-    })
+      .done(function(settings) {
+        $('#username').append(settings.name || hoodie.account.username)
+        $('h2.welcoming').append(settings.name || hoodie.account.username)
+      })
+      .fail(function() {
+        $('#username').append(hoodie.account.username)
+        $('h2.welcoming').append(hoodie.account.username)
+        // console.log((!$('#main') && hoodie.account.username == undefined))
+        // location.href = 'index.html';
+      })
   }
   $('#logout').bind('click', signOutUsr);
   $('#sign-up').bind('submit', submitSignUp);
@@ -35,25 +35,25 @@ var submitSignUp = function submitSignUp() {
   var pwd = $('#pwd').val();
 
   hoodie.account.signIn(usr, pwd).done(function() {
-    if(hoodie.account.username) {
+    if (hoodie.account.username) {
       location.href = 'dashboard.html';
     }
-  }).fail(function () {
+  }).fail(function() {
     hoodie.account.signUp(usr, pwd, pwd)
-      .done(function(){
-      if(hoodie.account.username) {
-        location.href = 'settings-init.html';
-      }
-    })
-    .fail(function () {
-      alert('Your credentials are wrong!');
-    })
+      .done(function() {
+        if (hoodie.account.username) {
+          location.href = 'settings-init.html';
+        }
+      })
+      .fail(function() {
+        alert('Your credentials are wrong!');
+      })
   })
   return false;
 }
 
-var signOutUsr = function signOutUsr () {
-  hoodie.account.signOut().done(function () {
+var signOutUsr = function signOutUsr() {
+  hoodie.account.signOut().done(function() {
     location.href = 'index.html';
   })
 }
@@ -61,14 +61,14 @@ var signOutUsr = function signOutUsr () {
 var workDays = function workDays() {
   return {
     total: totalWorkDays(dates),
-    left:  leftWorkDays(dates).leftWorkDays
+    left: leftWorkDays(dates).leftWorkDays
   };
 }
 
 var vecDays = function vecDays(settings) {
   return {
     total: settings.totalVecDays,
-    left:  settings.vecDays
+    left: settings.vecDays
   };
 }
 
@@ -78,19 +78,25 @@ var buildUrl = function buildUrl(from, to) {
   var urlReq = base + "from=" + from + "&to=" + to;
 
   return hoodie.store.find("settings", "user-settings")
-  .then(function(s) {
-    urlReq += "&location=" + s.favDestination;
+    .then(function(s) {
+      urlReq += "&location=" + s.favDestination;
 
-    var adults = parseInt(s.adults, 10);
-    var kids = parseInt(s.kids, 10);
-    var budget = parseInt(s.budget, 10);
+      var adults = parseInt(s.adults, 10);
+      var kids = parseInt(s.kids, 10);
+      var budget = parseInt(s.budget, 10);
 
-    if (adults > 0) urlReq += "&adults=" + adults;
-    if (kids > 0) urlReq += "&kids=" + kids;
-    if (budget > 0) urlReq += "&budget=" + budget;
+      if (adults > 0) {
+        urlReq += "&adults=" + adults;
+      }
+      if (kids > 0) {
+        urlReq += "&kids=" + kids;
+      }
+      if (budget > 0) {
+        urlReq += "&budget=" + budget;
+      }
 
-    return urlReq;
-  })
+      return urlReq;
+    })
 }
 
 function deserializeDaterange(str) {
@@ -100,62 +106,61 @@ function deserializeDaterange(str) {
   return {
     from: start.format('YYYY-MM-DD'),
     end: end.format('YYYY-MM-DD'),
-    days: end.diff(start)
+    days: end.diff(start, 'days')
   }
 }
 
 // return results
 var result = function result(event) {
   var e = event.target;
-  var engine = recommender({
-    dates: dates,
-    lastVacation: moment(),
-    blockedWork: [
-      {
-        from: '2015-06-28',
-        to: '2015-06-30',
-        days: 3
-      }
-    ],
-    blockedVac: [
-      {
-        from: '2015-07-03',
-        to: '2015-07-13',
-        days: 2
-      }
-    ]
-  });
+  hoodie.store.find("settings", "user-settings")
+    .then(function(s) {
+      var blockedVac = s['daterange-vacation']
+      var blockedWork = s['daterange-work']
+      blockedVac = blockedVac || []
+      blockedWork = blockedWork || []
+      blockedVac = blockedVac.map(deserializeDaterange)
+      blockedWork = blockedWork.map(deserializeDaterange)
 
-  var scores = engine.scores()
-  var recommends = engine.blocks(scores);
-
-  for (var i=1; i<=3; i++) {
-    (function(i) {
-      var from = recommends[i-1].start.date;
-      var to   = recommends[i-1].end.date;
-      buildUrl(from, to).then(function(urlReq) {
-        $.ajax({
-          url: urlReq
-        })
-        .done(function( data ) {
-          var dom = $(".output");
-          var res = data.results;
-
-          var f = moment(from).format("DD.MM.YYYY");
-          var t = moment(to).format("DD.MM.YYYY");
-          $(".output-option-"+i).text(
-            "Option " + i + ": " + f + " - " + t
-          )
-
-          $(".output").fadeIn().removeClass('hide');
-
-          res.slice(0,3).forEach(function (obj) {
-            var li = '<li><a class="btn btn-lage btn-danger r" href="' + obj.link + '" target="_blank">' + obj.price + ' € / p. n. &amp; p. <br /> Book now!</a> <img class="l" src="' + obj.image + '"/> <h3 class="l">' + obj.name + '<br /><small>' + obj.city + '</small></h3></li>'
-            $(".output-"+i).append(li).fadeIn().removeClass('hide');;
-          })
-        });
+      var engine = recommender({
+        dates: dates,
+        lastVacation: moment(),
+        blockedWork: blockedVac,
+        blockedVac: blockedWork
       });
-    })(i);
-  }
-  $('#dashboard').fadeOut().addClass('hide');
+
+      var scores = engine.scores()
+      var recommends = engine.blocks(scores);
+
+      for (var i = 1; i <= 3; i++) {
+        (function(i) {
+          var from = recommends[i - 1].start.date;
+          var to = recommends[i - 1].end.date;
+          buildUrl(from, to).then(function(urlReq) {
+            $.ajax({
+              url: urlReq
+            })
+              .done(function(data) {
+                var dom = $(".output");
+                var res = data.results;
+
+                var f = moment(from).format("DD.MM.YYYY");
+                var t = moment(to).format("DD.MM.YYYY");
+                $(".output-option-" + i).text(
+                  "Option " + i + ": " + f + " - " + t
+                )
+
+                $(".output").fadeIn().removeClass('hide');
+
+                res.slice(0, 3).forEach(function(obj) {
+                  var li = '<li><a class="btn btn-lage btn-danger r" href="' + obj.link + '" target="_blank">' + obj.price + ' € / p. n. &amp; p. <br /> Book now!</a> <img class="l" src="' + obj.image + '"/> <h3 class="l">' + obj.name + '<br /><small>' + obj.city + '</small></h3></li>'
+                  $(".output-" + i).append(li).fadeIn().removeClass('hide');
+                  ;
+                })
+              });
+          });
+        })(i);
+      }
+      $('#dashboard').fadeOut().addClass('hide');
+    })
 }
