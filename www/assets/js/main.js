@@ -27,7 +27,7 @@ var submitSignUp = function submitSignUp(){
   }).fail(function () {
     hoodie.account.signUp(usr, pwd, pwd).done(function(){
     if(hoodie.account.username) {
-      location.href = 'dashboard.html'
+      location.href = 'settings-init.html'
     }
   })
   })
