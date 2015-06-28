@@ -23,6 +23,10 @@ var saveData = function(args) {
       updatedData[arg] = val(arg);
     });
 
+    // HACK
+    updatedData['daterange-vacation'] = $('[name="daterange-vacation[]"]').map(function(){return $(this).val();}).get();
+    updatedData['daterange-work'] = $('[name="daterange-work[]"]').map(function(){return $(this).val();}).get();
+
     hoodie.store.update('settings', "user-settings", updatedData)
     .done(function(settings) {
       success.toggleClass("hidden")
