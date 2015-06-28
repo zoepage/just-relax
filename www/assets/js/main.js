@@ -20,14 +20,12 @@ $(function() {
   }
 
  if($('#dashboard')) {
-   hoodie.store.find('settings', 'user-settings')
-   .done(function(settings) {
-     animateDays(vacDays(settings), workDays());
-   });
+  animateDays({total: 240, left: 77},{total: 24, left: 17});
   }
   $('#logout').bind('click', signOutUsr);
   $('#sign-up').bind('submit', submitSignUp);
   $('#go-on-vacation').bind('click', result);
+  $('.day-ani').bind('live', animateDays)
 })
 
 // animation of work/vac days in dashboard
@@ -55,7 +53,7 @@ function animateDays(vacDay, workDay) {
 function factorForAni(total, left) {
   var factor = (-(left / total) * 100) + 100;
   return factor;
-}
+} 
 
 
 // sign-in on main page
@@ -94,10 +92,10 @@ var workDays = function workDays() {
   };
 }
 
-var vacDays = function vacDays(settings) {
+var vecDays = function vecDays(settings) {
   return {
-    total: parseInt(settings.totalVacDays || 0, 10),
-    left:  parseInt(settings.vacDays || 0, 10)
+    total: settings.totalVecDays,
+    left: settings.vecDays
   };
 }
 

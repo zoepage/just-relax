@@ -244,12 +244,16 @@ input:-moz-placeholder { color:#00615f !important; }
 	margin-right: 20%;
 }
 
-.overlay {
-	margin: 0 auto;
-	height: auto;  
+#vac-days .overlay {
 	top: 180px;
   left: 20px;
-  position: relative;
+  position: absolute;
+}
+
+#work-days .overlay {
+	top: 226px;
+  left: 70px;
+  position: absolute;
 }
 
 .green {
