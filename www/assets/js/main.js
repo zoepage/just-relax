@@ -53,7 +53,7 @@ function animateDays(vacDay, workDay) {
 function factorForAni(total, left) {
   var factor = ((-(left / total) * 100) + 100);
   return factor;
-} 
+}
 
 function createLabel(fac) {
   if(fac < 33) {
@@ -102,9 +102,13 @@ var workDays = function workDays() {
 }
 
 var vacDays = function vacDays(settings) {
+  var v = parseInt(settings.vacDays || 0, 10);
+  var t = parseInt(settings.totalVacDays || 0, 10);
+  if (t < v) t = v;
+
   return {
-    total: parseInt(settings.totalVacDays || 0, 10),
-    left:  parseInt(settings.vacDays || 0, 10)
+    total: v,
+    left:  t
   };
 }
 
