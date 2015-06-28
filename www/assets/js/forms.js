@@ -37,6 +37,9 @@ $(function() {
         '</span>' +
       '</div>'
     )
+    $el.find('[name="remove-range"]').on('click', function() {
+      $el.remove()
+    })
     $('#list-daterange-vacation').append($el)
     $val.val('')
   })
@@ -64,6 +67,9 @@ $(function() {
         '</span>' +
       '</div>'
     )
+    $el.find('[name="remove-range"]').on('click', function() {
+      $el.remove()
+    })
     $('#list-daterange-work').append($el)
     $val.val('')
   })
