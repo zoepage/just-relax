@@ -195,3 +195,12 @@ input:-moz-placeholder { color:#00615f !important; }
 .r {
 	float:right;
 }
+
+.save-success {
+  color: #5cb85c;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  vertical-align: middle;
+}
