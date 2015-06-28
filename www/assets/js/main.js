@@ -63,7 +63,6 @@ function createLabel(fac) {
   }
 }
 
-
 // sign-in on main page
 var submitSignUp = function submitSignUp() {
   var usr = $('#email').val();
