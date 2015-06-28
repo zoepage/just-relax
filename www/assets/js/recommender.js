@@ -161,6 +161,74 @@
     };
   }
 
+  function leftWorkDays(freeDays) {
+    var startIdx = -1;
+    var endIdx;
+    var now = moment().startOf('day');
+    var year = now.year();
+
+    freeDays.sort(function(a,b) {
+      a = moment(a).startOf('day');
+      b = moment(b).startOf('day');
+      if (a < b) return -1;
+      if (a > b) return +1;
+      return 0;
+    })
+
+    for (var i = 0; i < freeDays.length; i += 1) {
+      var free = moment(freeDays[i].from).startOf('day');
+      if (startIdx == -1 && free.utc() >= now.utc()) {
+        console.log({ free: free, now: now })
+        console.log("idx is ", i)
+        startIdx = i;
+      }
+
+      if (free.year() > year) {
+        endIdx = i;
+        break;
+      }
+    }
+
+    var leftDays = moment().endOf('year').diff(moment(), "days")
+    var freeThisYear = freeDays.slice(startIdx,endIdx);
+
+    return {
+      leftDays: leftDays,
+      freeThisYear: freeThisYear.length,
+      leftWorkDays: leftDays-freeThisYear.length
+    };
+  }
+
+  function totalWorkDays(freeDays) {
+    var startIdx = -1;
+    var endIdx;
+    var year = moment().year();
+
+    var startIdx = 0;
+    while(startIdx < freeDays.length) {
+      var free = moment(freeDays[startIdx].from).startOf('day');
+      if (free.year() == year) break;
+
+      startIdx++;
+    }
+
+    var endIdx = startIdx;
+    while(endIdx < freeDays.length) {
+      var free = moment(freeDays[endIdx].from).startOf('day');
+      if (free.year() != year) break;
+
+      endIdx++;
+    }
+
+    console.log(startIdx, endIdx);
+    var totalDays = moment().endOf('year').diff(moment().startOf('year'), 'days')+1
+    var freeThisYear = freeDays.slice(startIdx,endIdx).length;
+
+    console.log(totalDays, freeThisYear);
+
+    return totalDays-freeThisYear;
+  }
+
   if (typeof define === 'function' && define.amd) {
     define(function () {
       return recommender;
@@ -169,5 +237,7 @@
     module.exports = recommender;
   } else {
     window.recommender = recommender;
+    window.leftWorkDays = leftWorkDays;
+    window.totalWorkDays = totalWorkDays;
   }
 })();

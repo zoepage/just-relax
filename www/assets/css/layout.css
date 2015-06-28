@@ -140,13 +140,14 @@ input:-moz-placeholder { color:#00615f !important; }
 }
 
 .output li {
-	height: 124px; 
+	height: 124px;
 	border-bottom: 1px solid rgba(46, 105, 105, 0.2);
 	padding-top: 12px;
+	list-style-type: none;
 }
 
 .output li img {
-	height: 100px; 
+	height: 100px;
 	width: 100px;
 	margin-right: 20px;
 }
@@ -163,6 +164,7 @@ input:-moz-placeholder { color:#00615f !important; }
 .output dt {
 	font-size: 20px;
 	border-bottom:1px solid #EB6E77;
+	margin-top: 20px;
 }
 
 #menu-bar {
