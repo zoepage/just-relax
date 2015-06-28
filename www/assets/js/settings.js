@@ -73,6 +73,36 @@ function setData(settings) {
   val("kids", settings.kids),
   val("adults", settings.adults),
   val("dog", settings.dog)
+
+  settings['daterange-vacation'].forEach(function(range) {
+    var $el = $(
+      '<div class="input-group" style="margin-bottom:5px">' +
+        '<input disabled type="text" class="form-control" name="daterange-vacation[]" value="' + range + '" />' +
+        '<span class="input-group-btn">' +
+          '<button class="btn btn-default" type="button" name="remove-range">&times;</button>' +
+        '</span>' +
+      '</div>'
+    )
+    $el.find('[name="remove-range"]').on('click', function() {
+      $el.remove()
+    })
+    $('#list-daterange-vacation').append($el)
+  })
+
+  settings['daterange-work'].forEach(function(range) {
+    var $el = $(
+      '<div class="input-group" style="margin-bottom:5px">' +
+        '<input disabled type="text" class="form-control" name="daterange-work[]" value="' + range + '" />' +
+        '<span class="input-group-btn">' +
+          '<button class="btn btn-default" type="button" name="remove-range">&times;</button>' +
+        '</span>' +
+      '</div>'
+    )
+    $el.find('[name="remove-range"]').on('click', function() {
+      $el.remove()
+    })
+    $('#list-daterange-work').append($el)
+  })
 }
 
 var saveSettings = function saveSettings(e) {
