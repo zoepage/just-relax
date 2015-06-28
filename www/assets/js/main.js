@@ -79,13 +79,41 @@ var buildUrl = function buildUrl(from, to) {
   })
 }
 
+function deserializeDaterange(str) {
+  var start = moment(str.split(' - ')[0])
+  var end = moment(str.split(' - ')[1])
+
+  return {
+    from: start.format('YYYY-MM-DD'),
+    end: end.format('YYYY-MM-DD'),
+    days: end.diff(start)
+  }
+}
+
 // return results
 var result = function result(event) {
   var e = event.target;
-  var urlReq = e.getAttribute('data-url');
+  var engine = recommender({
+    dates: dates,
+    lastVacation: moment(),
+    blockedWork: [
+      {
+        from: '2015-06-28',
+        to: '2015-06-30',
+        days: 3
+      }
+    ],
+    blockedVac: [
+      {
+        from: '2015-07-03',
+        to: '2015-07-13',
+        days: 2
+      }
+    ]
+  });
 
-  var scores = window.engine.scores()
-  var recommends = window.engine.blocks(scores);
+  var scores = engine.scores()
+  var recommends = engine.blocks(scores);
 
   for (var i=1; i<=3; i++) {
     (function(i) {
@@ -115,25 +143,4 @@ var result = function result(event) {
   }
   $(".output").fadeIn().removeClass('hide');
   $('#dashboard').fadeOut().addClass('hide');
-}
-
-if (window.recommender) {
-  window.engine = recommender({
-    dates: dates,
-    lastVacation: moment(),
-    blockedWork: [
-      {
-        from: '2015-06-28',
-        to: '2015-06-30',
-        days: 3
-      }
-    ],
-    blockedVac: [
-      {
-        from: '2015-07-03',
-        to: '2015-07-13',
-        days: 2
-      }
-    ]
-  })
 }
