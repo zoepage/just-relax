@@ -13,3 +13,11 @@ $(function(){
     })
 })
 
+$(function() {
+  $('input[name="daterange"]').daterangepicker({
+    format: 'MM/DD/YYYY',
+    minDate: '06/01/2015',
+    maxDate: '06/30/2015',
+    dateLimit: { days: 6 }
+  });
+});
