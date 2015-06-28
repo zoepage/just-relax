@@ -7,11 +7,14 @@ var hoodie  = new Hoodie();
 $(function () {
   if(hoodie.account.username) {
     $('#username').append(hoodie.account.username)
-    $('#about h2').append(hoodie.account.username )
+    $('#about h2').append(hoodie.account.username)
+  } else{
+    // console.log((!$('#main') && hoodie.account.username == undefined))   
+    // location.href = 'index.html';
   }
-  $('#logout').bind('click', signOutUsr)
-  $('#sign-up').bind('submit', submitSignUp)
-  $('#go-on-vacation').bind('click', result)
+  $('#logout').bind('click', signOutUsr);
+  $('#sign-up').bind('submit', submitSignUp);
+  $('#go-on-vacation').bind('click', result);
 })
 
 
@@ -22,21 +25,26 @@ var submitSignUp = function submitSignUp(){
 
   hoodie.account.signIn(usr, pwd).done(function(){
     if(hoodie.account.username) {
-      location.href = 'dashboard.html'
+      location.href = 'dashboard.html';
     }
   }).fail(function () {
-    hoodie.account.signUp(usr, pwd, pwd).done(function(){
-    if(hoodie.account.username) {
-      location.href = 'settings-init.html'
-    }
-  })
+    hoodie.account.signUp(usr, pwd, pwd)
+      .done(function(){
+      if(hoodie.account.username) {
+        location.href = 'settings-init.html';
+      }
+    })
+    .fail(function () {
+      alert('Your credentials are wrong!');
+    })
   })
   return false;
 }
 
 var signOutUsr = function signOutUsr () {
-  hoodie.account.signOut()
-  location.href = 'index.html'
+  hoodie.account.signOut().done(function () {
+    location.href = 'index.html';
+  })
 }
 
 // return results
@@ -80,5 +88,5 @@ if (window.recommender) {
   })
 
   var scores = engine.scores()
-  console.log(engine.blocks(scores))
+ console.log(engine.blocks(scores))
 }

@@ -197,10 +197,19 @@ input:-moz-placeholder { color:#00615f !important; }
 }
 
 .save-success {
-  color: #5cb85c;
+  color: #00615f;
   font-weight: bold;
   font-size: 1.2em;
   padding: 6px 12px;
   line-height: 1.42857143;
   vertical-align: middle;
 }
+
+.btn.btn-success {
+	background-color: #00615f;
+}
+
+.btn.btn-success:hover {
+	background-color: #326c68;
+}
+/*326c68*/
