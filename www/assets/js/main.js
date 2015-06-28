@@ -34,16 +34,20 @@ $(function() {
 function animateDays(vacDay, workDay) {
   var overlay = $('.day-ani')
   var factorWorkDays = factorForAni(workDay.total, workDay.left);
-  var factorVacDays = factorForAni(vacDay.total, vacDay.left, workDay.total, workDay.left);
+  var factorVacDays = factorForAni(vacDay.total, vacDay.left);
 
-  $('#vac-days').addClass(createLabel(factorVacDays)).animate({
-    'border-width': (1.25 * factorVacDays)
+  var vacW = 125 - (125 * factorVacDays);
+  var workW = 125 - (125 * factorWorkDays);
+
+  var label = createLabel(vacDay, workDay)
+  $('#vac-days').addClass(label).animate({
+    'border-width': vacW
   }, 1400, function() {
     $('.vac-days.overlay').append(vacDay.left + ' / ' + vacDay.total).fadeIn();
   });
 
-  $('#work-days').addClass(createLabel(factorWorkDays)).animate({
-    'border-width': (1.25 * factorWorkDays)
+  $('#work-days').addClass(label).animate({
+    'border-width': workW
   }, 1400, function() {
     $('.work-days.overlay').append(workDay.left + ' / ' + workDay.total).fadeIn();
   });
@@ -51,17 +55,22 @@ function animateDays(vacDay, workDay) {
  }
 
 function factorForAni(total, left) {
-  var factor = ((-(left / total) * 100) + 100);
-  return factor;
+  console.log("factorForAni", total, left, left/total);
+  return left / total;
 }
 
-function createLabel(fac) {
-  if(fac < 33) {
-    return 'red';
-  } else if (fac >= 33 && fac < 66) {
+function createLabel(vacDay, workDay) {
+  var vac = vacDay.left / vacDay.total;
+  var work = workDay.left / workDay.total;
+
+  var fac = Math.abs(vac - work);
+
+  if(fac < 0.2) {
+    return 'green';
+  } else if (fac < 0.4) {
     return 'orange';
   } else {
-    return 'green';
+    return 'red';
   }
 }
 
@@ -107,8 +116,8 @@ var vacDays = function vacDays(settings) {
   if (t < v) t = v;
 
   return {
-    total: v,
-    left:  t
+    total: t,
+    left:  v
   };
 }
 
