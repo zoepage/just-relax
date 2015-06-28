@@ -19,13 +19,15 @@ $(function() {
       })
   }
 
- if($('#dashboard')) {
-  animateDays({total: 240, left: 77},{total: 24, left: 17});
+  if($('#dashboard')) {
+    hoodie.store.find('settings', 'user-settings')
+    .done(function(settings) {
+      animateDays(vacDays(settings), workDays());
+    });
   }
   $('#logout').bind('click', signOutUsr);
   $('#sign-up').bind('submit', submitSignUp);
   $('#go-on-vacation').bind('click', result);
-  $('.day-ani').bind('live', animateDays)
 })
 
 // animation of work/vac days in dashboard
@@ -99,10 +101,10 @@ var workDays = function workDays() {
   };
 }
 
-var vecDays = function vecDays(settings) {
+var vacDays = function vacDays(settings) {
   return {
-    total: settings.totalVecDays,
-    left: settings.vecDays
+    total: parseInt(settings.totalVacDays || 0, 10),
+    left:  parseInt(settings.vacDays || 0, 10)
   };
 }
 
