@@ -40,7 +40,6 @@
 
 <body>
   <section id="menu-bar">
-    <p id="logout" class="r">Logout</p>
     <a href="dashboard.html" class="r">Dashboard</a>
     <p id="username" class="r">Hello </p>
   </section>
@@ -92,57 +91,9 @@
       </div>
       <div class="form-group">
         <label for="vacDays">How many days for vacation are left?</label>
-        <input type="number" class="form-control" id="vacDays">
-      </div>
-      <div class="form-group">
-        <label for="budget">What's your budget?</label>
-        <input type="number" class="form-control" id="budget">
-      </div>
-      <div class="form-group">
-        <label for="distance">Whats the max. distance you would like to travel?:</label>
-        <select class="form-control" id="distance">
-          <option>Countrywide</option>
-          <option>EU-wide</option>
-          <option>Worldwide</option>
-          <option>Mars</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="travelMode">Select your Vehicle:</label>
-        <select class="form-control" id="travelMode">
-          <option>Plane</option>
-          <option>Car</option>
-          <option>Bus</option>
-          <option>Walking</option>
-          <option>Ship</option>
-        </select>
+        <input type="number" class="form-control" id="openVacDays">
       </div>
       <button class="btn btn-success" id="save-travel-data">Update your travel Data</button>
-      <span class="save-success hidden">✓</span>
-    </form>
-  </div>
-
-  <!-- Section Constrains -->
-  <div class="col-md-offset-3 col-md-6 spare-line bottom-margin">
-    <div class="headlines">Important Informations?</div>
-    <form role="form">
-      <div class="form-group">
-        <label for="favDestination">What is your prefered destination?</label>
-        <input type="text" class="form-control" id="favDestination">
-      </div>
-      <div class="form-group">
-        <label for="kids">Do you have kids with you? If yes, how many?</label>
-        <input type="number" class="form-control" id="kids">
-      </div>
-      <div class="form-group">
-        <label for="adults">Do you have adults with you? If yes, how many?</label>
-        <input type="number" class="form-control" id="adults">
-      </div>
-      <div class="form-group">
-        <label for="dog">Do you have Dogs with you? If yes, how many?</label>
-        <input type="number" class="form-control" id="dog">
-      </div>
-      <button class="btn btn-success" id="save-important-information">Update important information</button>
       <span class="save-success hidden">✓</span>
     </form>
   </div>
