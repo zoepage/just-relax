@@ -84,7 +84,7 @@ const school_holidays_berlin_2019 = [
   },
   {
     start: "2019-12-23T00:00",
-    end: "2020-01-05T00:00",
+    end: "2020-01-01T00:00",
     year: 2019,
     stateCode: "BE",
     name: "weihnachtsferien",
@@ -140,7 +140,7 @@ const getDates = () => {
     // Create an entry for every day of this range without weekends
     const flattenHolidaysWithoutweekends = [];
     for (let i = 0; i < total_vacation_days; i++) {
-      const current_date = start_date.add(i, 'days');
+      const current_date = start_date.clone().add(i, 'd');
       const current_date_weekday = current_date.day();
 
       // Filter 0 SUNDAY && 6 SATURDAY
