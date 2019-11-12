@@ -2,7 +2,10 @@
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
 <head>
 
   <!-- Basic Page Needs
@@ -44,76 +47,80 @@
     <p id="username" class="r">Hello </p>
   </section>
 
-<div class="container">
+  <div class="container">
 
 
-  <!-- Section Personal Data -->
-  <div class="col-md-offset-3 col-md-6">
-    <div class="headlines">Personal Data</div>
-    <form role="form">
-      <div class="form-group">
-        <label for="name">What's your name?</label>
-        <input type="name" class="form-control" id="name">
-      </div>
+    <!-- Section Personal Data -->
+    <div class="col-md-offset-3 col-md-6">
+      <div class="headlines">Personal Data</div>
+      <form role="form">
+        <div class="form-group">
+          <label for="name">What's your name?</label>
+          <input type="name" class="form-control" id="name">
+        </div>
 
-      <button class="btn btn-success" id="save-personal-data">Update your personal data</button>
-      <span class="save-success hidden">✓</span>
-    </form>
+        <button class="btn btn-success" id="save-personal-data">Update your personal data</button>
+        <span class="save-success hidden">✓</span>
+      </form>
+    </div>
+
+    <!-- Section Travel Data -->
+    <div class="col-md-offset-3 col-md-6 spare-line">
+      <div class="headlines">Travel related Data</div>
+      <form role="form">
+        <div class="form-group">
+          <label for="daterangeVacation">Blocked for vacation</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="daterangeVacation" />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="addDaterangeVacation">Add</button>
+            </span>
+          </div>
+        </div>
+        <div class="form-group" id="list-daterange-vacation"></div>
+        <div class="form-group">
+          <label for="daterangeWork">Blocked for work</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="daterangeWork" />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="addDaterangeWork">Add</button>
+            </span>
+          </div>
+        </div>
+        <div class="form-group" id="list-daterange-work"></div>
+        <div class="form-group">
+          <label for="vacDays">How many days for vacation do you have in a year?</label>
+          <input type="number" class="form-control" id="totalVacDays">
+        </div>
+        <div class="form-group">
+          <label for="vacDays">How many days for vacation are left?</label>
+          <input type="number" class="form-control" id="openVacDays">
+        </div>
+        <button class="btn btn-success" id="save-travel-data">Update your travel Data</button>
+        <span class="save-success hidden">✓</span>
+      </form>
+    </div>
   </div>
 
-  <!-- Section Travel Data -->
-  <div class="col-md-offset-3 col-md-6 spare-line" >
-    <div class="headlines">Travel related Data</div>
-    <form role="form">
-      <div class="form-group">
-        <label for="daterangeVacation">Blocked for vacation</label>
-        <div class="input-group">
-          <input type="text" class="form-control" id="daterangeVacation" />
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" id="addDaterangeVacation">Add</button>
-          </span>
-        </div>
-      </div>
-      <div class="form-group" id="list-daterange-vacation"></div>
-      <div class="form-group">
-        <label for="daterangeWork">Blocked for work</label>
-        <div class="input-group">
-          <input type="text" class="form-control" id="daterangeWork"/>
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" id="addDaterangeWork">Add</button>
-          </span>
-        </div>
-      </div>
-      <div class="form-group" id="list-daterange-work"></div>
-      <div class="form-group">
-        <label for="vacDays">How many days for vacation do you have in a year?</label>
-        <input type="number" class="form-control" id="totalVacDays">
-      </div>
-      <div class="form-group">
-        <label for="vacDays">How many days for vacation are left?</label>
-        <input type="number" class="form-control" id="openVacDays">
-      </div>
-      <button class="btn btn-success" id="save-travel-data">Update your travel Data</button>
-      <span class="save-success hidden">✓</span>
-    </form>
-  </div>
-</div>
-
-<script src="assets/vendor/jquery-2.1.0.min.js"></script>
-<script src="assets/vendor/bootstrap/bootstrap.js"></script>
-<!-- Load the dynamic version of hoodie.js that includes all the plugin code-->
-<script src="/_api/_files/hoodie.js"></script>
-<script src="assets/js/forms.js"></script>
-<script src="assets/vendor/hoodie.accountbar.bootstrap.js"></script>
-<script src="assets/vendor/moment.js"></script>
-<script src="assets/js/date-range.js"></script>
-<script src="assets/vendor/bootstrap.modalform.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/settings.js"></script>
+  <script src="assets/vendor/jquery-2.1.0.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.js"></script>
+  <!-- Load the dynamic version of hoodie.js that includes all the plugin code-->
+  <script src="/_api/_files/hoodie.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script src="assets/vendor/hoodie.accountbar.bootstrap.js"></script>
+  <script src="assets/vendor/moment.js"></script>
+  <script src="assets/js/date-range.js"></script>
+  <script src="assets/vendor/bootstrap.modalform.js"></script>
+  <script src="assets/js/dates.js"></script>
+  <script src="assets/js/recommender.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/settings.js"></script>
 
 
 
-<!-- End Document
+
+  <!-- End Document
 ================================================== -->
 </body>
+
 </html>
