@@ -92,6 +92,20 @@ const school_holidays_berlin_2019 = [
   }
 ]
 
+// https://stackoverflow.com/questions/2218999/remove-duplicates-from-an-array-of-objects-in-javascript
+function removeDuplicates(originalArray, prop) {
+  var newArray = [];
+  var lookupObject = {};
+
+  for (var i in originalArray) {
+    lookupObject[originalArray[i][prop]] = originalArray[i];
+  }
+
+  for (i in lookupObject) {
+    newArray.push(lookupObject[i]);
+  }
+  return newArray;
+}
 
 /* 
 Transform function for the recommender!
@@ -144,10 +158,12 @@ const getDates = () => {
     return [...flattenHolidaysWithoutweekends]
   }).flat(1)
 
-  return [
+  const merged_dates = [
     ...formated_dates_public_holidays_2019,
     ...formated_school_holidays_berlin_2019
   ]
+
+  return removeDuplicates(merged_dates, 'from');
 }
 
 var dates = getDates();
